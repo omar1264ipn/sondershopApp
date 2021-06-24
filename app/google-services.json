@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "550105951328",
+    "firebase_url": "https://sondershoptogoapp-default-rtdb.firebaseio.com",
+    "project_id": "sondershoptogoapp",
+    "storage_bucket": "sondershoptogoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550105951328:android:c6e7056572e18bdf922705",
+        "android_client_info": {
+          "package_name": "com.sondershop.sondershopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550105951328-vepcosu9ia14700sr6snje3m4ao4c54i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sondershop.sondershopapp",
+            "certificate_hash": "36b622d9dc119b9ca63857596e78afb9c112bc01"
+          }
+        },
+        {
+          "client_id": "550105951328-h0v3raef4r5j54stl0gsnqu079m0808m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAamm3xpEutIGXyECMWskzuomrpVvQsNws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550105951328-h0v3raef4r5j54stl0gsnqu079m0808m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

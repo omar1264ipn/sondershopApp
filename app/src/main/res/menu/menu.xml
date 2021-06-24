@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/orders"
+        android:icon="@drawable/ic_shoppingblack"
+        android:title="INICIO" />
+    <item
+        android:id="@+id/goout"
+        android:icon="@drawable/goout"
+        android:title="CATEGORIAS" />
+    <item
+        android:id="@+id/gold"
+        android:title="" />
+    <item
+        android:id="@+id/videos"
+        android:icon="@drawable/videos"
+        android:title="FAVORITOS" />
+
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/videos"
+        android:title="MI PERFIL" />
+
+</menu>

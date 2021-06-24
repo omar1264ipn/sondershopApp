@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:layout_margin="10dp"
+    android:backgroundTint="#F6F2F2"
+    android:background="@drawable/rounded_button"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:src="@drawable/house"
+        app:civ_border_color="#F0F0F0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="167dp"
+        android:layout_height="15dp"
+        android:gravity="center_vertical"
+        android:inputType="textCapCharacters"
+        android:text="@string/carlogo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        android:maxLength="20"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/circleImageNext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/profilePic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageNext"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right|top"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/ic_good"
+        app:civ_circle_background_color="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPaisCard"
+        app:layout_constraintEnd_toStartOf="@+id/btndelete"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toEndOf="@+id/profilePic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/btndelete"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_delete"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.636"
+        android:id="@+id/grupoid" />
+
+    <TextView
+        android:id="@+id/txtPaisCard"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/statuslock"
+        android:textColor="@color/colorPrimary"
+        android:textSize="10dp"
+        android:maxLength="30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/circleImageNext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/profilePic"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.333" />
+
+
+    <TextView
+        android:id="@+id/txtalmacena2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="15"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">SonderShop</string>
+    <string-array name="PaisesQ">
+        <item>Brasil</item>
+        <item>Mexico</item>
+        <item>United States</item>
+        <item>Japan</item>
+        <item>Peru</item>
+    </string-array>
+
+    <string name="bienvenido">Bienvenido</string>
+    <string name="perfil">Mi Perfil</string>
+    <string name="facturas">Facturas</string>
+    <string name="ubicaciones">Direcciones de Envio</string>
+    <string name="historial">Historial de Pedidos</string>
+    <string name="intro">Sondershop</string>
+    <string name="introMenu">¡Tu Tienda Virtual de Confianza!</string>
+    <string name="hintingresa">Ingresar</string>
+    <string name="hintnuevo">Nueva Cuenta</string>
+    <string name="titulo">Sondershop</string>
+    <string name="contraseña">Haz olvidado tu contraseña?</string>
+    <string name="hintpass">Password</string>
+    <string name="hintcorreoelec">Correo Electronico</string>
+    <string name="accesorapido">Acceso rápido con:</string>
+    <string name="nuevacuenta">Crear cuenta</string>
+    <string name="escribenombre">Escribe tu nombre</string>
+    <string name="seleccfoto">Subir fotografia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="correo">Ingresa correo electronico</string>
+    <string name="hintcomprar">Guardar Direccion</string>
+    <string name="hintmarca">Marca</string>
+    <string name="hintmodelo">Modelo</string>
+    <string name="hintprecio">S/100</string>
+    <string name="hintcategoria">Categoria</string>
+    <string name="hintsku">Sku</string>
+    <string name="hintproducto">Producto</string>
+    <string name="hintprecioetiqueta">Precio</string>
+    <string name="hintcantidad">Cantidad</string>
+    <string name="hinttotal">Total</string>
+    <string name="hintpaypal">Paypal</string>
+    <string name="hintcontraentrega">CONTRA ENTREGA</string>
+    <string name="hintdeposito">DEPOSITO EN CUENTA</string>
+    <string name="recupera">Recupera cuenta</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="hintagregar">Agregar al carrito</string>
+    <string name="Sku">Sku</string>
+    <string name="Modelo">Modelo</string>
+    <string name="Categoria">Categoria</string>
+    <string name="Detalles">Detalles del envio</string>
+    <string name="DetallesProducto">Detalle Producto</string>
+    <string name="Ship">Direccion de Envio</string>
+    <string name="Tipoenvio">Enviado por :</string>
+    <string name="DetallesPago">Detalles del pago</string>
+    <string name="especificacion">Especificacion</string>
+    <string name="garantia">Garantia</string>
+    <string name="pais">Pais</string>
+    <string name="estadoProducto">Estado del Producto</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="txtObtienePais">Mexico</string>
+    <string name="opcionesPago">Tipo de pago</string>
+    <string name="hintcomprar2">Pagar</string>
+    <string name="statuslock">Cdmx Delegacion iztacalco codigo postal 08500</string>
+    <string name="carlogo">Omar Sanchez Hernandez</string>
+    <string name="direccion">Agricola oriental sur 16 a # 37</string>
+    <string name="filtrar">Filtrar</string>
+
+</resources>
