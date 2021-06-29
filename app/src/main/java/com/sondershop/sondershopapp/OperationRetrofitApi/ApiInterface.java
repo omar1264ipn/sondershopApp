@@ -60,6 +60,12 @@ public interface ApiInterface {
             @Query("user_phone") String user_phone
     );
 
+    //filtro registro////////////////
+    @GET("api/productosFiltrados.php")
+    Call<Users> performFiltrados(
+            @Query("parametro") String user_filtroid
+    );
+
     //get de todas las categorias
     @GET("api/categories.php")
     Call<Users> getCategories();
@@ -79,6 +85,10 @@ public interface ApiInterface {
     //get para obtener los productos filtrados por categoria
     @GET("api/productosCategoria.php")
     Call<Users> getProductosCategoria();
+
+    //get de los banners
+    @GET("api/productosFiltrados.php")
+    Call<Users> getProducFiltrados();
 
     //get para obtener grandes ofertas en los productos
     @GET("api/great_offers_shops.php")

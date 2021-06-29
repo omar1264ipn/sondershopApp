@@ -5,6 +5,7 @@ import com.sondershop.sondershopapp.models.BannerModel;
 import com.sondershop.sondershopapp.models.CategoryModel;
 import com.sondershop.sondershopapp.models.GreatOffersModel;
 import com.sondershop.sondershopapp.models.SimpleVerticalModel;
+import com.sondershop.sondershopapp.models.filtroProducModel;
 import com.sondershop.sondershopapp.models.productosCategoriaModel;
 
 
@@ -30,6 +31,9 @@ public class Users {
     @SerializedName("email")
     private String UserCorreo;
 
+    @SerializedName("parametro")
+    private String UserFiltro;
+
     @SerializedName("strip_banner_image")
     private String strip_banner_image;
 
@@ -42,9 +46,11 @@ public class Users {
     @SerializedName("random_shops") //aqui va el nombre del nodo dque viene de la informacion de la apirest
     private List<SimpleVerticalModel> random_shops; //en la variable instanciada va el nombre del nodo que viene de la apirest para reconcerla mas facilmente
 
+    @SerializedName("productosFiltrados") //aqui va el nombre del nodo dque viene de la informacion de la apirest
+    private List<filtroProducModel> productosFiltrados; //en la variable instanciada va el nombre del nodo que viene de la apirest para reconcerla mas facilmente
+
     @SerializedName("productos_categoria") //aqui va el nombre del nodo dque viene de la informacion de la apirest
     private List<productosCategoriaModel> productos_categoria; //en la variable instanciada va el nombre del nodo que viene de la apirest para reconcerla mas facilmente
-
 
     @SerializedName("great_offers_shops") //aqui va el nombre del nodo dque viene de la informacion de la apirest
     private List<GreatOffersModel> great_offers_shops; //en la variable instanciada va el nombre del nodo que viene de la apirest para reconcerla mas facilmente
@@ -63,6 +69,10 @@ public class Users {
 
     @SerializedName("8mm_exclusive_vertical") //aqui va el nombre del nodo dque viene de la informacion de la apirest
     private List<SimpleVerticalModel> eightmm_exclusive_vertical; //en la variable instanciada va el nombre del nodo que viene de la apirest para reconcerla mas facilmente
+
+    public String getUserFiltro() {
+        return UserFiltro;
+    }
 
     public String getResponse() {
         return Response;
@@ -107,6 +117,11 @@ public class Users {
     public List<SimpleVerticalModel> getRandom_shops() {
         return random_shops;
     }
+
+    public List<filtroProducModel> getProductosFiltrados() {
+        return productosFiltrados;
+    }
+
 
     public List<GreatOffersModel> getGreat_offers_shops() {
         return great_offers_shops;

@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,6 +17,8 @@ import com.sondershop.sondershopapp.OperationRetrofitApi.ApiInterface;
 import com.sondershop.sondershopapp.OperationRetrofitApi.Users;
 import com.sondershop.sondershopapp.R;
 import com.sondershop.sondershopapp.adapter.productosCategoriaAdapter;
+import com.sondershop.sondershopapp.adapter.productosFiltrosAdapter;
+import com.sondershop.sondershopapp.models.filtroProducModel;
 import com.sondershop.sondershopapp.models.productosCategoriaModel;
 
 import java.util.ArrayList;
@@ -33,8 +36,9 @@ public class productoFiltrado extends AppCompatActivity {
     private productosCategoriaAdapter productosInstanciaCatAdap;
     private List<productosCategoriaModel> productosCatModelList;
 
+    private productosFiltrosAdapter productosInstanciaFiltroAdap;
+    private List<filtroProducModel> productosFiltroModelList;
     EditText cajaFiltro;
-
     CircleImageView btnfiltro;
 
     @Override
@@ -42,70 +46,57 @@ public class productoFiltrado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto_filtrado);
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        inicia();
-    }
-
-    private void inicia()
-    {
         cajaFiltro = (EditText) findViewById(R.id.cajafiltro);
         btnfiltro = findViewById(R.id.btnfiltro);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         recyclerViewSimple = findViewById(R.id.recyclerviewSimple);
-     //   LinearLayoutManager layoutManagerSimpleVerticalSlider = new LinearLayoutManager(this);
+        //   LinearLayoutManager layoutManagerSimpleVerticalSlider = new LinearLayoutManager(this);
         recyclerViewSimple.setLayoutManager(gridLayoutManager);
         String user_filtro = cajaFiltro.getText().toString().trim();
 
         btnfiltro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("kimbo8",user_filtro);
 
-                if (TextUtils.isEmpty(user_filtro)) {
-                    cajaFiltro.setError("Ingrese valores a consultar");
+                Toast.makeText(productoFiltrado.this, ""+cajaFiltro.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                Log.d("kimbo8",cajaFiltro.getText().toString());
+                if (cajaFiltro.getText().toString().isEmpty()) {
+                    Toast.makeText(productoFiltrado.this, "llena datos", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     ProgressDialog dialog = new ProgressDialog(productoFiltrado.this);
                     dialog.setTitle("Loading...");
-                    dialog.setMessage("Estamos Buscando tus Productos");
+                    dialog.setMessage("Estamos Buscando tus productos");
                     dialog.show();
                     dialog.setCanceledOnTouchOutside(false);
-                    /*
-
-                    Call<Users> call = apiInterface.performFiltro(user_filtro);
+                    productosFiltroModelList = new ArrayList<>();
+                    Call<Users> call = apiInterface.performFiltrados(cajaFiltro.getText().toString());
                     call.enqueue(new Callback<Users>() {
                         @Override
                         public void onResponse(Call<Users> call, Response<Users> response) {
-
-                            productosFiltradosModelList = new ArrayList<>();
-                            Call<Users> productos_filtrados = apiInterface.getproductofiltrado();
-                            productos_filtrados.enqueue(new Callback<Users>() {
-                                @Override
-                                public void onResponse(Call<Users> call, Response<Users> response) {
-                                    productosFiltradosModelList = response.body().getProductos_categoria_filtrado();
-                                    productosInstanciaCatFiltroAdap = new productosCategoriaFiltroAdapter(productosFiltradosModelList, productoFiltrado.this);
-                                    recyclerViewSimple.setAdapter(productosInstanciaCatFiltroAdap);
-                                    productosInstanciaCatFiltroAdap.notifyDataSetChanged();
-                                }
-                                @Override
-                                public void onFailure(Call<Users> call, Throwable t) {
-                                }
-                            });
-
+                            try {
+                                productosFiltroModelList = response.body().getProductosFiltrados();
+                                productosInstanciaFiltroAdap = new productosFiltrosAdapter(productosFiltroModelList, productoFiltrado.this);
+                                recyclerViewSimple.setAdapter(productosInstanciaFiltroAdap);
+                                productosInstanciaFiltroAdap.notifyDataSetChanged();
+                                dialog.dismiss();
+                            }catch (Exception e)
+                            {
+                                Log.d("samsung",e.toString());
+                            }
                         }
-
                         @Override
                         public void onFailure(Call<Users> call, Throwable t) {
-
                         }
                     });
 
-                     */
+
                 }
+
             }
         });
-
-
         productosCatModelList = new ArrayList<>();
         Call<Users> productos_categoria = apiInterface.getProductosCategoria();
         productos_categoria.enqueue(new Callback<Users>() {
@@ -120,6 +111,5 @@ public class productoFiltrado extends AppCompatActivity {
             public void onFailure(Call<Users> call, Throwable t) {
             }
         });
-
     }
 }

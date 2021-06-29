@@ -17,10 +17,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.sondershop.sondershopapp.Contacto;
+import com.sondershop.sondershopapp.CustomExpandableListAdapter;
 import com.sondershop.sondershopapp.MyToolbar;
 import com.sondershop.sondershopapp.R;
 import com.sondershop.sondershopapp.categorias.productoFiltrado;
@@ -29,14 +33,18 @@ import com.sondershop.sondershopapp.detalleVenta.categoriasSonder;
 import com.sondershop.sondershopapp.homeActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
 public class categoriasFragment extends Fragment {
 
 
-    private RecyclerView recyclerViewcategoria;
-    private RecyclerViewAdaptador adaptadorCategoria;
+    private ExpandableListView expandableListView;
+    private ExpandableListAdapter expandableListAdapter;
+    private List<String> expandableListNombres;
+    private HashMap<String, Contacto> listaContactos;
+    private int lastExpandedPosition = -1;
 
     private View view;
 
@@ -55,19 +63,60 @@ public class categoriasFragment extends Fragment {
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(myToolbar);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.colornaranja));
-       // myToolbar.setTitleColor(getResources().getColor(R.color.colornaranja));
+        // myToolbar.setTitleColor(getResources().getColor(R.color.colornaranja));
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Categorias");
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        recyclerViewcategoria = view.findViewById(R.id.main_recycler);
-        recyclerViewcategoria.setLayoutManager(new LinearLayoutManager(getContext()));
+        init();
 
-        adaptadorCategoria = new RecyclerViewAdaptador(getContext(),obtenerCategoria());
-        recyclerViewcategoria.setAdapter(adaptadorCategoria);
+        expandableListView.setAdapter(expandableListAdapter);
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(lastExpandedPosition != -1 && groupPosition != lastExpandedPosition){
+                    expandableListView.collapseGroup(lastExpandedPosition);
+                }
+                lastExpandedPosition = groupPosition;
+            }
+        });
 
 
         return view;
     }
+
+    private void init() {
+        this.expandableListView = view.findViewById(R.id.expandableListView);
+        this.listaContactos = getContactos();
+        this.expandableListNombres = new ArrayList<>(listaContactos.keySet());
+        this.expandableListAdapter = new CustomExpandableListAdapter(getContext(),
+                expandableListNombres, listaContactos);
+
+    }
+
+
+    private HashMap<String, Contacto> getContactos() {
+        HashMap<String, Contacto> listaC = new HashMap<>();
+
+        listaC.put("Moda Mujer", new Contacto("Moda mujer",
+                "Bañadores", "Partes de abajo", "Boda y celebraciones","Lenceria y ropa interior","Accesorios","Zapatos", R.drawable.img_11,R.drawable.banner_ropa,7));
+        return listaC;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public List<categoriasSonder> obtenerCategoria()
     {
@@ -89,6 +138,7 @@ public class categoriasFragment extends Fragment {
 
         return instanciaCategoria;
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

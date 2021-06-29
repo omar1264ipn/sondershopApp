@@ -54,7 +54,6 @@
                 android:ems="20"
                 android:background="@color/colorgrisclaro"
                 android:textSize="15dp"
-                android:text="afeitadoras"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnfiltro"
                 app:layout_constraintHorizontal_bias="0.0"
